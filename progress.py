@@ -5,13 +5,13 @@ import time
 def progress(width, percent):
     """ ====       4/51 """
 
-    if percent > 100:
+    if percent > width:
         stdout.write('')
         stdout.flush()
         return
 
     print_str = "%s %d/%d\r" % \
-        (('%%-%ds' % width) % (width * percent / 100 * '='), percent, width)
+        (('%%-%ds' % 100) % (100 * percent / width * '='), percent, width)
 
     stdout.write(print_str)
     stdout.flush()
@@ -32,10 +32,10 @@ def progress_100(percent):
 
 
 if __name__ == "__main__":
-    for i in range(1, 100):
+    for i in range(100, 1120):
         # progress_100(i)
-        progress(120, i)
-        time.sleep(1)
+        progress(1120, i)
+        time.sleep(0.1)
 
 
 
